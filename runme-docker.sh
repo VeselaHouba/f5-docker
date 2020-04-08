@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-IMG=f5-docker
+IMG=jmcloud/f5-docker
 docker run \
   --rm \
   -ti \
