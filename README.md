@@ -68,7 +68,7 @@ Run image with your config - extensive example below.
 Script is included in image as `/opt/ansible/runme-docker.sh`
 
 ```
-IMG=f5-docker
+IMG=jmcloud/f5-docker
 docker run \
   --rm \
   -ti \
