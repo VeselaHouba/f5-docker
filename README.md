@@ -6,8 +6,17 @@ F5 role: https://gitlab.m-cloud.cz/ansible/f5
 
 # Quickstart
 
-Pull latest docker image
+For impatient: This is how you run the role.
 
+```BASH
+git clone https://github.com/VeselaHouba/f5-docker
+cd f5-docker
+./runme-docker.sh playbooks/dev.yml
+```
+
+This will obviously fail, because the repo config is empty. You have to create it first, but at least you know the deploy part works.
+
+Not a bad idea to update image from time to time
 ```
 docker pull jmcloud/f5-docker
 ```
@@ -64,10 +73,10 @@ Create your local ansible configuration. Folowing basic structure is expected/te
     `-- prod.yml
 ```
 
-Run image with your config - extensive example below.
-Script is included in image as `/opt/ansible/runme-docker.sh`
+Run image with your config. You can use script `./runme-docker.sh`
 
-```
+```BASH
+#!/usr/bin/env bash
 IMG=jmcloud/f5-docker
 docker run \
   --rm \
@@ -79,7 +88,7 @@ docker run \
   -v `pwd`/playbooks:/opt/ansible/playbooks \
   -v `pwd`/f5_partial_deploy.yml:/opt/ansible/f5_partial_deploy.yml \
   "${IMG}" \
-  bash -c "ansible-playbook playbook/lab.yml"
+  bash -c "ansible-playbook playbooks/lab.yml"
 ```
 
 # Related projects
