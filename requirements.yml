@@ -1,0 +1,4 @@
+---
+- name: f5
+  src: git+https://gitlab.m-cloud.cz/ansible/f5.git
+  path: roles
