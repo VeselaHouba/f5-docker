@@ -91,6 +91,9 @@ docker run \
   bash -c "ansible-playbook playbooks/lab.yml"
 ```
 
+# Development version
+To use latest packages, you can change `IMG` variable to jmcloud/f5-docker:dev.
+
 # Related projects
 https://gitlab.m-cloud.cz/ansible/f5
 
