@@ -2,23 +2,23 @@ FROM python:3.8-alpine
 COPY . /opt/ansible/
 WORKDIR /opt/ansible/
 RUN \
-  apk --no-cache add \
-    git \
+  apk add \
+    --no-cache \
     jq \
-    bash \
-    gcc \
-    musl-dev \
-    libffi-dev \
-    openssl-dev && \
-  pip install \
-    ansible==2.9.2 \
-    f5-sdk==3.0.21 && \
-  ansible-galaxy install -fr requirements.yml && \
-  apk del \
+    bash
+RUN \
+  apk add \
+    --no-cache \
+    --virtual build-dependencies \
     git \
     gcc \
     musl-dev \
     libffi-dev \
-    openssl-dev && \
-  rm -rf /var/cache/apk/*
+    openssl-dev \
+  && pip install \
+    ansible==2.9.2 \
+    f5-sdk==3.0.21 \
+  && ansible-galaxy install -fr requirements.yml \
+  && apk del build-dependencies \
+  && rm -rf /var/cache/apk/*
 CMD ansible-playbook

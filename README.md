@@ -1,10 +1,10 @@
-f5-docker
-=========
+# f5-docker
+
 Docker image built around ansible role for managing F5 boxes.
 
-F5 role: https://gitlab.m-cloud.cz/ansible/f5
+F5 role: <https://gitlab.m-cloud.cz/ansible/f5>
 
-# Quickstart
+## Quickstart
 
 For impatient: This is how you run the role.
 
@@ -17,7 +17,7 @@ cd f5-docker
 This will obviously fail, because the repo config is empty. You have to create it first, but at least you know the deploy part works.
 
 Not a bad idea to update image from time to time
-```
+```BASH
 docker pull jmcloud/f5-docker
 ```
 
@@ -25,7 +25,7 @@ docker pull jmcloud/f5-docker
 Create your local ansible configuration. Folowing basic structure is expected/tested.
 
 
-```
+```NONE
 .
 |-- .vault_pass.txt
 |-- ansible.cfg
@@ -91,17 +91,16 @@ docker run \
   bash -c "ansible-playbook playbooks/lab.yml"
 ```
 
-# Development version
+## Development version
 To use latest packages, you can change `IMG` variable to jmcloud/f5-docker:dev.
 
-# Related projects
-https://gitlab.m-cloud.cz/ansible/f5
+## Related projects
+<https://gitlab.m-cloud.cz/ansible/f5>
 
-License
--------
+## License
 
 BSD
 
-Author Information
-------------------
+## Author Information
+
 Jan Michalek (michalek_at_m-cloud.cz)
