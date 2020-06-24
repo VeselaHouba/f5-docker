@@ -6,6 +6,7 @@ RUN \
     --no-cache \
     jq \
     bash
+
 RUN \
   apk add \
     --no-cache \
@@ -19,6 +20,8 @@ RUN \
     ansible==2.9.2 \
     f5-sdk==3.0.21 \
   && ansible-galaxy install -fr requirements.yml \
+  && ansible-galaxy collection install https://f5-ansible.s3.amazonaws.com/collections/f5networks-f5_modules-devel.tar.gz -p ./collections \
+  && ln -s /opt/ansible/roles collections/ansible_collections/f5networks/f5_modules/roles \
   && apk del build-dependencies \
   && rm -rf /var/cache/apk/*
 CMD ansible-playbook
