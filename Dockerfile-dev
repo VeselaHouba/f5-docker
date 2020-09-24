@@ -20,6 +20,7 @@ RUN \
     ansible==2.9.2 \
     f5-sdk==3.0.21 \
   && ansible-galaxy install -fr requirements.yml \
+  && mv /opt/ansible/roles/veselahouba.f5_ansible /opt/ansible/roles/f5 \
   && ansible-galaxy collection install f5networks.f5_modules -p ./collections \
   && ln -s /opt/ansible/roles collections/ansible_collections/f5networks/f5_modules/roles \
   && apk del build-dependencies \
