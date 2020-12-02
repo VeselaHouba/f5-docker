@@ -18,6 +18,7 @@ RUN \
   && pip install \
     ansible==2.9.2 \
     f5-sdk==3.0.21 \
+    deepdiff \
   && ansible-galaxy install -fr requirements.yml \
   && apk del build-dependencies \
   && rm -rf /var/cache/apk/*
