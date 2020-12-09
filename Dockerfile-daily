@@ -26,4 +26,8 @@ RUN \
   && ln -s /opt/ansible/roles collections/ansible_collections/f5networks/f5_modules/roles \
   && apk del build-dependencies \
   && rm -rf /var/cache/apk/*
+
+# https://github.com/F5Networks/f5-ansible/issues/1933
+RUN sed -i 's/TEEM_VERIFY = True/TEEM_VERIFY = False/g' /opt/ansible/collections/ansible_collections/f5networks/f5_modules/plugins/module_utils/constants.py
+
 CMD ansible-playbook
