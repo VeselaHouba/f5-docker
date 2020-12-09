@@ -1,0 +1,6 @@
+Dockerfile*
+README.md
+runme-docker.sh
+.git
+.github
+.dockerignore
