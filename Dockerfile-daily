@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:3.9-alpine
 COPY . /opt/ansible/
 WORKDIR /opt/ansible/
 RUN \
@@ -16,8 +16,8 @@ RUN \
     musl-dev \
     libffi-dev \
     openssl-dev \
-  && pip install \
-    ansible==2.9.2 \
+  && pip3 install \
+    ansible==2.10.4 \
     f5-sdk==3.0.21 \
     deepdiff \
   && ansible-galaxy install -fr requirements.yml \
