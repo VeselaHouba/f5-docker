@@ -17,6 +17,7 @@ RUN \
     openssl-dev \
   && pip install \
     ansible==2.9.2 \
+    cryptography==3.3.2 \
     f5-sdk==3.0.21 \
     deepdiff \
   && ansible-galaxy install -fr requirements.yml \
