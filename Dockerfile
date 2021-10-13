@@ -30,6 +30,4 @@ RUN \
   && apk del build-dependencies \
   && rm -rf /tmp/f5-ansible/ /var/cache/apk/*
 
-# Temporary before https://github.com/F5Networks/f5-ansible/issues/2067 is fixed
-COPY issue-2067/ /opt/ansible/collections/ansible_collections/f5networks/f5_modules/plugins/modules/
 CMD ansible-playbook
