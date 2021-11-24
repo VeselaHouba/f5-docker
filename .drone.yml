@@ -2,14 +2,29 @@
 kind: pipeline
 name: default
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: dockerx prep
+    image: thegeeklab/drone-docker-buildx
+    privileged: true
+    volumes:
+      - name: dockersock
+        path: /var/run
+    commands:
+      - sleep 5
+      - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
+  - name: dockerx
+    image: thegeeklab/drone-docker-buildx
+    privileged: true
+    volumes:
+      - name: dockersock
+        path: /var/run
     settings:
       username: jmcloud
       password:
         from_secret: JMC_DOCKER_PASSWORD
       repo: jmcloud/${DRONE_REPO_NAME/_/-}
       auto_tag: true
+      platforms: linux/arm64/v8,linux/amd64
 
   - name: Slack notification
     image: plugins/slack
@@ -32,3 +47,15 @@ steps:
       status:
         - success
         - failure
+
+services:
+  - name: docker
+    image: docker:dind
+    privileged: true
+    volumes:
+      - name: dockersock
+        path: /var/run
+
+volumes:
+  - name: dockersock
+    temp: {}
