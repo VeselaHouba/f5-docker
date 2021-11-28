@@ -30,4 +30,6 @@ RUN \
   && apk del build-dependencies \
   && rm -rf /tmp/f5-ansible/ /var/cache/apk/*
 
-CMD ansible-playbook
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["ansible-playbook"]

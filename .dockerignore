@@ -1,6 +1,7 @@
 Dockerfile*
 README.md
 runme-docker.sh
+.drone.yml
 .git
 .github
 .dockerignore
