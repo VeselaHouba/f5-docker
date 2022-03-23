@@ -1,6 +1,6 @@
 # f5-docker
 
-Docker image built around ansible role for managing F5 boxes.
+Docker image built around ansible role for managing F5 boxes. [![Build Status](https://drone.m-cloud.cz/api/badges/VeselaHouba/f5-docker/status.svg)](https://drone.m-cloud.cz/VeselaHouba/f5-docker)
 
 F5 role: <https://gitlab.m-cloud.cz/ansible/f5>
 
